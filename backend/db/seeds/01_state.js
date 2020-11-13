@@ -1,8 +1,9 @@
 exports.seed = async (knex) => {
-  await knex('country').insert([
-    { name: 'US' },
-    { name: 'CA' },
-    { name: 'BA' },
-    { name: 'CO' },
+  await knex('city').insert([
+    {
+      name: 'Sarajevo',
+      capital: true,
+      country_id: knex('country').where({ name: 'BA' }).select('id'),
+    },
   ]);
 };
