@@ -11,6 +11,7 @@ const errorHandling = (error, req, res, next) => {
     status: statusCode,
     message: error.message,
     stack: process.env.NODE_ENV === 'production' ? '🍰' : error.stack,
+    error: error.errors || undefined,
   });
 };
 

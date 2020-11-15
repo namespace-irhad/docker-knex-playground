@@ -40,7 +40,7 @@ exports.up = async (knex) => {
 exports.down = async (knex) => {
   await Promise.all(
     ['user', 'country', 'city'].map((tableName) =>
-      knex.schema.dropTable(tableName)
+      knex.schema.dropTableIfExists(tableName)
     )
   );
 };
